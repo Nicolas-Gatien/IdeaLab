@@ -36,7 +36,14 @@ function stopRecording() {
     recordingList.appendChild(option);
 }
 
-function playRecording(url) {
-    const audio = new Audio(url);
-    audio.play();
+function playRecording() {
+    const recordingList = document.getElementById('recordingList');
+    const selectedUrl = recordingList.value;
+
+    if (selectedUrl) {
+        const audio = new Audio(selectedUrl);
+        audio.play();
+    }
 }
+
+document.getElementById('recordingList').addEventListener('click', playRecording);
